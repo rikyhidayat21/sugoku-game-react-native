@@ -88,29 +88,29 @@ export default function Game({ route, navigation }) {
 
       </View>
       <View style={styles.container}>
+        <View style={{width: 50, height: 40, justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
 
-        { boardDuplicate.map((row, rowIndex) => {
-          return (
-            <View style={{flexDirection: 'row'}}>
-              { row.map((col, colIndex) => (
-                <View style={styles.row}>
-                  <TextInput 
-                    style={styles.col}
-                    keyboardType="numeric"
-                    maxLength={1}
-                    value={col ? col.toString() : ''}
-                    onChangeText={(text) => onChangeInput(text, rowIndex, colIndex)}
-                    editable={board[rowIndex][colIndex] === 0 ? true: false}
-                  />
-                </View>
-              ))}
-            </View>
-          )
-        })}
+          { boardDuplicate.map((row, rowIndex) => {
+            return (
+              <View style={{flexDirection: 'row'}} key={rowIndex}>
+                { row.map((col, colIndex) => (
+                  <View style={styles.row} key={colIndex}>
+                    <TextInput 
+                      style={styles.col}
+                      keyboardType="numeric"
+                      maxLength={1}
+                      value={col ? col.toString() : ''}
+                      onChangeText={(text) => onChangeInput(text, rowIndex, colIndex)}
+                      editable={board[rowIndex][colIndex] === 0 ? true: false}
+                    />
+                  </View>
+                ))}
+              </View>
+            )
+          })}
 
-        <View style={{ marginTop: 40, marginHorizontal: 20, flexDirection: 'row', margin: 1}}>
+        <View style={{ margin: 5, flexDirection: 'row'}}>
           <Button 
-            style={{ padding: 1}}
             title="SUBMIT"
             onPress={() => checkAnswer()}
           />
@@ -120,6 +120,8 @@ export default function Game({ route, navigation }) {
             onPress={() => solveSudoku()}
           />
         </View>
+        </View>
+
 
       </View>
     </>
