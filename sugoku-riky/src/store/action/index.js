@@ -1,0 +1,4 @@
+export const SET_BOARD = "SET_BOARD"
+export const SET_BACKUPBOARD = "SET_BACKUPBOARD"
+export const SET_STATUS = "SET_STATUS"
+export const SET_LEADER_BOARD = "SET_LEADER_BOARD"
